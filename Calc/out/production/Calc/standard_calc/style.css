@@ -1,0 +1,16 @@
+.menubar {
+    -fx-background-color: transparent;
+}
+.number {
+    -fx-background-color: #fff;
+}
+
+.operator {
+ /*-fx-background-color: cornsilk;*/
+ /*-fx-background-color: coral;*/
+ -fx-background-color: ghostwhite;
+}
+
+.label {
+
+}

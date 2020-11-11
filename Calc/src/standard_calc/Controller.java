@@ -29,22 +29,26 @@ public class Controller {
             case "7":
             case "8":
             case "9":
-                numhandler(btnText);
+                numHandler(btnText);
                 break;
             // operator cases
             case "-":
             case "+":
             case "x":
             case "/":
+                oprHandler(btnText);
+                break;
             case "CE":
+                clear();
+                break;
             case "C":
-                oprhandler(btnText);
+                clearAll();
                 break;
             case ".":
-                dothandler();
+                dotHandler();
                 break;
             case "+/-":
-                changesign();
+                changeSign();
                 break;
             case "=":
                 displayResult();
@@ -52,7 +56,7 @@ public class Controller {
         }
     }
 
-    void numhandler(String num) {
+    void numHandler(String num) {
         String oldText = current.getText();
         String newText;
 
@@ -64,10 +68,35 @@ public class Controller {
         current.setText(newText);
     }
 
-    void oprhandler(String opr) {
+    void oprHandler(String opr) {
+        String sumText = current.getText();
+
+        if (operator.isBlank()) {
+            sum = Double.parseDouble(sumText);
+        } else {
+            compute();
+        }
         operator = opr;
         historyHandler();
+    }
 
+    void compute() {
+        double cur = Double.parseDouble(current.getText());
+        switch (operator) {
+            case "+":
+                sum += cur;
+                break;
+            case "-":
+                sum -= cur;
+                break;
+            case "x":
+                sum *= cur;
+                break;
+            case "/":
+                sum /= cur;
+                break;
+        }
+        System.out.println("sum " + sum);
     }
 
     void historyHandler() {
@@ -77,28 +106,33 @@ public class Controller {
         current.setText("");
     }
 
-    void dothandler() {
+    void dotHandler() {
         boolean isDecimal = checkDecimal();
         String oldText = current.getText();
-        if(!isDecimal) {
-            current.setText(String.format("%s%s", oldText, ".") );
+        if (!isDecimal) {
+            current.setText(String.format("%s%s", oldText, "."));
         }
         System.out.println(isDecimal);
     }
 
     boolean checkDecimal() {
         String cur = current.getText();
-        Pattern p = Pattern.compile("[0-9-]+\\.[0-9]*");
-        Matcher match = p.matcher(cur);
-        boolean b = match.matches();
+        /*Pattern pattern = Pattern.compile("[0-9-]+\\.[0-9]*");
+        Matcher match = pattern.matcher(cur);
+        boolean matches = match.matches();
 
-        if (b) {
+        if (matches) {
             return true;
         }
         return false;
+        */
+        if (cur.matches("[0-9-]+\\.[0-9]*")) {
+            return true;
+        };
+        return false;
     }
 
-    void changesign() {
+    void changeSign() {
         boolean isDecimal = checkDecimal();
         String cur = current.getText();
 
@@ -114,7 +148,38 @@ public class Controller {
         }
     }
 
-    void displayResult() {
+    void clear() {
+        String cur = current.getText();
 
+        /*String cur = current.getText();
+        if(!cur.isBlank()) {
+            current.setText(cur.substring(0, cur.length()-1));
+        }*/
+
+        // using stringbuilder
+        StringBuilder curBuilder = new StringBuilder();
+        curBuilder.append(cur);
+
+        if(!cur.isBlank()) {
+            curBuilder.deleteCharAt(curBuilder.length() - 1);
+            current.setText(curBuilder.toString());
+        }
     }
+
+    void clearAll() {
+        operator = "";
+        sum = 0;
+        current.setText("0");
+        expression.setText("");
+    }
+
+    void displayResult() {
+        compute();
+        String cur = current.getText();
+        String oldExpression = expression.getText();
+        expression.setText(oldExpression.concat(cur));
+        //expression.setText(oldExpression.concat(cur));
+        current.setText(String.valueOf(sum));
+    }
+
 }
