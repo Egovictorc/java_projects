@@ -21,7 +21,7 @@
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="19.0">
+                  <ImageView fitHeight="18.0" fitWidth="26.0">
                      <image>
                         <Image url="@menu.png" />
                      </image>

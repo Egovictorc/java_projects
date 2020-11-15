@@ -21,7 +21,7 @@
         <menus>
           <Menu mnemonicParsing="false">
                <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="19.0">
+                  <ImageView fitHeight="18.0" fitWidth="26.0">
                      <image>
                         <Image url="@menu.png" />
                      </image>
@@ -44,7 +44,7 @@
          <children>
             <Label fx:id="expression" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="320.0">
                <font>
-                  <Font name="Engravers MT" size="32.0" />
+                  <Font name="Engravers MT" size="26.0" />
                </font>
             </Label>
             <Label fx:id="current" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" prefHeight="73.0" prefWidth="320.0" text="0">
@@ -79,12 +79,12 @@
             </Button>
             <Button layoutX="10.0" layoutY="43.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="\%">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
             <Button layoutX="10.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="CE" GridPane.columnIndex="1">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
             <Button layoutX="110.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="number" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -104,12 +104,12 @@
             </Button>
             <Button layoutX="10.0" layoutY="104.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="C" GridPane.columnIndex="2">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
             <Button layoutX="210.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="/" GridPane.columnIndex="3">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
             <Button layoutX="310.0" layoutY="12.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="number" text="9" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -119,7 +119,7 @@
             </Button>
             <Button layoutX="210.0" layoutY="43.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="x" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
             <Button layoutX="310.0" layoutY="43.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="number" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -134,7 +134,7 @@
             </Button>
             <Button layoutX="210.0" layoutY="73.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
             <Button layoutX="310.0" layoutY="73.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="number" text="2" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -149,7 +149,7 @@
             </Button>
             <Button layoutX="210.0" layoutY="104.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
             <Button layoutX="310.0" layoutY="104.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="number" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -159,7 +159,7 @@
             </Button>
             <Button layoutX="110.0" layoutY="134.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="+/-" GridPane.rowIndex="4">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
             <Button layoutX="10.0" layoutY="134.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="." GridPane.columnIndex="2" GridPane.rowIndex="4">
@@ -169,7 +169,7 @@
             </Button>
             <Button layoutX="210.0" layoutY="134.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onMouseClicked" styleClass="operator" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
-                  <Font name="Britannic Bold" size="22.0" />
+                  <Font name="Berlin Sans FB" size="22.0" />
                </font>
             </Button>
          </children>

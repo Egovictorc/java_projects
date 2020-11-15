@@ -5,14 +5,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Controller {
     double sum = 0;
-    @FXML
-    Label current, expression;
+
+    @FXML Label current, expression;
     String operator = "";
+    boolean showedResult = false;
 
     public void onMouseClicked(MouseEvent e) {
         Button btn = (Button) e.getSource();
@@ -53,6 +51,9 @@ public class Controller {
             case "=":
                 displayResult();
                 break;
+            case "%":
+                percentHandler();
+                break;
         }
     }
 
@@ -60,14 +61,15 @@ public class Controller {
         String oldText = current.getText();
         String newText;
 
-        if (!oldText.equals("0")) {
-            newText = oldText + num;
-        } else {
+        if (oldText.equals("0")) {
             newText = num;
+        } else {
+            newText = oldText + num;
         }
         current.setText(newText);
     }
 
+    /************************************* method: operator handler  *********************************/
     void oprHandler(String opr) {
         String sumText = current.getText();
 
@@ -77,32 +79,45 @@ public class Controller {
             compute();
         }
         operator = opr;
-        historyHandler();
+
+        expressionHandler();
+        /*************************************** check if result has been shown *********************************/
+        if (showedResult) {
+            showedResult = false;
+        }
     }
 
     void compute() {
         double cur = Double.parseDouble(current.getText());
         switch (operator) {
             case "+":
-                sum += cur;
+                sum += cur; // sum = sum + cur;
                 break;
             case "-":
-                sum -= cur;
+                sum -= cur; // sum = sum - cur;
                 break;
             case "x":
-                sum *= cur;
+                sum *= cur; // sum = sum * cur;
                 break;
             case "/":
-                sum /= cur;
+                sum /= cur; // sum = sum / cur;
                 break;
         }
         System.out.println("sum " + sum);
+
     }
 
-    void historyHandler() {
+    /************************************* method: expression handler *********************************/
+    void expressionHandler() {
         String oldExp = expression.getText();
         String cur = current.getText();
-        expression.setText(String.format("%s%s%s", oldExp, cur, operator));
+
+        //expression.setText(String.format("%s%s%s", oldExp, cur, operator));
+        if(!showedResult) {
+            expression.setText(oldExp+cur+operator);
+        } else {
+            expression.setText(cur+operator);
+        }
         current.setText("");
     }
 
@@ -126,7 +141,7 @@ public class Controller {
         }
         return false;
         */
-        if (cur.matches("[0-9-]+\\.[0-9]*")) {
+        if (cur.matches("[0-9-]+\\.[0-9]+")) {
             return true;
         };
         return false;
@@ -160,7 +175,7 @@ public class Controller {
         StringBuilder curBuilder = new StringBuilder();
         curBuilder.append(cur);
 
-        if(!cur.isBlank()) {
+        if (!cur.isBlank()) {
             curBuilder.deleteCharAt(curBuilder.length() - 1);
             current.setText(curBuilder.toString());
         }
@@ -175,11 +190,32 @@ public class Controller {
 
     void displayResult() {
         compute();
-        String cur = current.getText();
-        String oldExpression = expression.getText();
-        expression.setText(oldExpression.concat(cur));
+        //String cur = current.getText();
+        //String oldExpression = expression.getText();
         //expression.setText(oldExpression.concat(cur));
-        current.setText(String.valueOf(sum));
+        //expression.setText(oldExpression.concat(cur));
+
+        operator = "";
+
+        expressionHandler();
+        String res = String.valueOf(sum);
+        current.setText(removeZero(res));
+        showedResult = true;
+        System.out.println("res "+ res);
+    }
+
+    void percentHandler() {
+        //String cur = current.getText();
+        double cur = Double.parseDouble(current.getText());
+        current.setText(String.valueOf(cur / 100));
+    };
+
+    String removeZero(String res) {
+        if(res.matches("[0-9]+\\.0")) {
+            return res.substring(0, res.length() - 2);
+        } else {
+            return res;
+        }
     }
 
 }
