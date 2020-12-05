@@ -15,4 +15,8 @@ class BankAccountTest {
     @org.junit.jupiter.api.Test
     void getBalance() {
     }
+
+    @org.junit.jupiter.api.Test
+    void isChecking() {
+    }
 }

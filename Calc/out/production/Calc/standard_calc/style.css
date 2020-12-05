@@ -14,3 +14,7 @@
 .label {
 
 }
+
+#history {
+    -fx-background-color: rgba(9,9,9, 0.9);
+}
